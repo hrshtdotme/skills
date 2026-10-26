@@ -16,6 +16,10 @@ rule, and `## Setup` (where tickets, worktrees and ticket folders live). If it
 doesn't exist, tell the user to run `/harshit-planner setup`, and continue
 with the defaults below.
 
+Then read `## Expectations` in `~/growth/team.md` if it exists: how the
+user's manager and leads want work done. Follow them in this session, for
+example in how a pull request is split or described.
+
 ## What each ticket is for
 
 1. **Ship it**: the outcome, proven, observable in production.

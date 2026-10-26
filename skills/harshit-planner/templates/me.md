@@ -70,5 +70,6 @@ Every feature ships with:
 | Production branch | not set (e.g. `main`, or the branch that deploys to production) |
 | Analytics | not set (e.g. PostHog, Amplitude) |
 | Logs and traces | not set (e.g. Datadog, Sentry) |
+| Meeting source | not set (e.g. the Wispr Flow connector; without one, paste notes) |
 | Skills folder | not set (where you edit these skills) |
 | Companion skills | `grill-with-docs`, `to-spec`, `to-tickets`, `implement` from `npx skills add mattpocock/skills` |

@@ -1,7 +1,7 @@
 ---
 name: harshit-planner
-description: Daily planner for a steady engineering routine. Plans the day, drafts the standup, manager update and weekly goals, and runs twice-weekly check-ins.
-argument-hint: "setup | morning | shutdown | monday | checkin   (blank: picked by day and time)"
+description: Daily planner for a steady engineering routine. Plans the day, pulls action items and lessons out of meetings, drafts the standup, manager update and weekly goals, and runs twice-weekly check-ins.
+argument-hint: "setup | morning | meetings | shutdown | monday | checkin   (blank: picked by day and time)"
 disable-model-invocation: true
 ---
 
@@ -22,6 +22,8 @@ any chat can run this skill and lose nothing:
   learned.md             one line per lesson, written at the end of each ticket
   skill-feedback.md      proposed and applied changes to the skills
   glossary.md            technical terms and their status
+  team.md                expectations, who owns what, shipping and risks
+  meetings.md            meetings already processed
 ```
 
 Use the ISO week for weekly files (`date +%G-W%V`). The shape of each file is
@@ -32,7 +34,8 @@ in [templates/](templates/).
 | Mode | When | Output |
 | --- | --- | --- |
 | `setup` | First run, or to change a setting | `~/growth/` with a filled-in `me.md` |
-| `shutdown` | Night, after the last meeting | Today's review, tomorrow's draft plan |
+| `meetings` | After meetings, and as the first step of `shutdown` | Confirmed to-dos, changes, expectations and lessons, written to the plan and growth files |
+| `shutdown` | Night, after the last meeting | Today's meetings processed, today's review, tomorrow's draft plan |
 | `morning` | First 20 minutes of work | Confirmed plan, standup draft, manager update draft when due |
 | `monday` | First workday of the week, before `morning` | Weekly goals and their post |
 | `checkin` | The check-in days in `me.md` | Signal scores, skill check, adjustments |
@@ -60,6 +63,7 @@ only for what no tool shows.
    and ship checks that are due (the change reached the production branch 2 or
    more days ago and `## Ship check` has no result).
 5. The latest daily file and this week's weekly file.
+6. `team.md`: the expectations to plan by, and what's shipping or at risk.
 
 ## Mode: setup
 
@@ -70,23 +74,31 @@ only for what no tool shows.
    check-in days), the standup and manager update (where, when, format), and
    `## Setup` (tracker, code host, where repositories, worktrees and ticket
    folders live, the preview environment, the production branch, the
-   analytics and logging tools).
+   analytics and logging tools, the meeting source).
 3. Show the finished `me.md` and ask what to change.
 
 Done when every setting in `me.md` is filled in or marked "not set".
 
+## Mode: meetings
+
+Read [MEETINGS.md](MEETINGS.md) and follow it.
+
 ## Mode: shutdown
 
-1. Ask the user, in one message: what got done, what didn't and why, decisions
+1. Run the `meetings` mode first. When no new meeting is ready, say so in a
+   line and go on.
+2. Ask the user, in one message: what got done, what didn't and why, decisions
    made today, and tomorrow's priorities in their words (including meetings).
-2. Fill today's `## Evening review`: done, not done and why, decisions, new
+3. Fill today's `## Evening review`: done, not done and why, decisions, new
    terms used, plan hit rate (done / planned top 3).
-3. Draft tomorrow's file: the ranked queue, with a reason for each rank, and
+4. Draft tomorrow's file: the ranked queue, with a reason for each rank, and
    tomorrow's top 3, each with a concrete finish line ("review comments
    answered, CI green, re-review requested", not "work on the login bug").
-4. Remind the user of their shutdown time, and stop.
+   Include the to-dos confirmed from today's meetings.
+5. Remind the user of their shutdown time, and stop.
 
-Keep it under 10 minutes. Done when tomorrow's file exists with a top 3.
+Keep it under 15 minutes. Done when today's meetings are processed or listed
+as waiting, and tomorrow's file exists with a top 3.
 
 ## Mode: morning
 

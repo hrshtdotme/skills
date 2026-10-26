@@ -18,7 +18,7 @@ npx skills add hrshtdotme/skills
 | --- | --- | --- |
 | [`grill-engineering`](skills/grill-engineering/SKILL.md) | `/grill-engineering bug ENG-123 <the problem>` | An engineering interview. In `bug` mode the agent shows the evidence and asks questions until *you* name the root cause. In `feature` mode you choose the design from real options and trade-offs. `understand` mode walks you through a system that already exists. Every decision is recorded with its reason. |
 | [`harshit-works`](skills/harshit-works/SKILL.md) | `/harshit-works active ENG-123 <the problem>` | The first message of every ticket session. It tells the agent how you work: you're the student and the decision maker, it's the mentor and implementer. It picks the workflow and tells you which command to type next. It loads no other skills. |
-| [`harshit-planner`](skills/harshit-planner/SKILL.md) | `/harshit-planner` | Your daily routine in a separate chat. It plans the morning, runs a 10-minute shutdown at night, drafts your standup, manager update and weekly goals, and runs twice-weekly check-ins that score your progress and improve these skills. |
+| [`harshit-planner`](skills/harshit-planner/SKILL.md) | `/harshit-planner` | Your daily routine in a separate chat. It plans the morning and runs a short shutdown at night. It reads your meeting transcripts for to-dos, decisions, expectations and lessons, and confirms each one with you before saving it. It drafts your standup, manager update and weekly goals, and runs twice-weekly check-ins that score your progress and improve these skills. |
 
 All three run only when you type them. They never start on their own, so one
 skill's instructions never mix with another's.
@@ -28,7 +28,8 @@ skill's instructions never mix with another's.
 ```mermaid
 flowchart LR
   subgraph Day["Planner chat: /harshit-planner"]
-    S[shutdown<br/>night] --> M[morning<br/>plan and standup]
+    Q[meetings<br/>to-dos and lessons] --> S[shutdown<br/>night]
+    S --> M[morning<br/>plan and standup]
     M --> C[checkin<br/>twice a week]
   end
   M -- "kickoff message" --> W
@@ -78,7 +79,9 @@ Update later with `npx skills update`.
    asks about your goal, routine and tools: your tracker, where your repos
    live, your preview environment, your production branch.
 2. Keep that chat as your planner. Each morning run `/harshit-planner`, and
-   each night `/harshit-planner shutdown`.
+   each night `/harshit-planner shutdown`. Shutdown reads the day's meetings
+   first, from a meeting recorder connector such as Wispr Flow, or from notes
+   you paste in.
 3. Start every ticket in its own chat with
    `/harshit-works active <ticket-id> <the problem in your words>`.
 
@@ -97,6 +100,8 @@ pick up where the last one stopped:
   learned.md            one lesson per ticket, in your words
   glossary.md           technical terms: new → read → using
   skill-feedback.md     proposed and applied changes to the skills
+  team.md               expectations, who owns what, shipping and risks
+  meetings.md           meetings already processed
   tickets/<id>/         decisions.md for each ticket
 ```
 
