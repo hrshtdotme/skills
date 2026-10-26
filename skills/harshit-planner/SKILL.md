@@ -20,6 +20,7 @@ any chat can run this skill and lose nothing:
   daily/YYYY-MM-DD.md    the day's queue, blocks, standup, review
   weekly/YYYY-Www.md     weekly goals and check-ins
   learned.md             one line per lesson, written at the end of each ticket
+  feedback.md            what the manager and leads say good work looks like
   skill-feedback.md      proposed and applied changes to the skills
   glossary.md            technical terms and their status
   team.md                expectations, who owns what, shipping and risks
@@ -64,6 +65,8 @@ only for what no tool shows.
    more days ago and `## Ship check` has no result).
 5. The latest daily file and this week's weekly file.
 6. `team.md`: the expectations to plan by, and what's shipping or at risk.
+7. `feedback.md`: what good work looks like. Shape the plan, the standup and
+   the weekly goals by it.
 
 ## Mode: setup
 

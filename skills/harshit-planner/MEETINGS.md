@@ -37,7 +37,8 @@ account info, and the name in `me.md`.
 | **To do** | Something the user committed to, or was asked to do: who asked, by when | The ranked queue in today's or tomorrow's daily file |
 | **Changed** | A decision, a priority change, or an ownership change that affects the user's work | The daily file, and `team.md` when it lasts |
 | **Expected** | A standing expectation from the manager or a lead about how work is done | `team.md` under `## Expectations` |
-| **Lesson** | Something that worked or got praised, or a mistake discussed, that the user can reuse | `learned.md`, or a proposal in `skill-feedback.md` when it changes the routine (for example, the weekly-goals format) |
+| **Feedback** | Praise or a correction from the manager or a lead, to the user or to someone else in the room, that shows what good work looks like | `feedback.md`, newest first |
+| **Lesson** | Something that worked, or a mistake discussed, that the user can reuse | `learned.md`, or a proposal in `skill-feedback.md` when it changes the routine (for example, the weekly-goals format) |
 | **Context** | Who owns what, what's shipping, risks, customer situations | `team.md` |
 | **Term or question** | A technical term new to the user, or something the user didn't follow | The glossary, or a follow-up in the daily file |
 
