@@ -19,8 +19,9 @@ npx skills add hrshtdotme/skills
 | [`grill-engineering`](skills/grill-engineering/SKILL.md) | `/grill-engineering bug ENG-123 <the problem>` | An engineering interview. In `bug` mode the agent shows the evidence and asks questions until *you* name the root cause. In `feature` mode you choose the design from real options and trade-offs. `understand` mode walks you through a system that already exists. Every decision is recorded with its reason. |
 | [`harshit-works`](skills/harshit-works/SKILL.md) | `/harshit-works active ENG-123 <the problem>` | The first message of every ticket session. It tells the agent how you work: you're the student and the decision maker, it's the mentor and implementer. It picks the workflow and tells you which command to type next. It loads no other skills. |
 | [`harshit-planner`](skills/harshit-planner/SKILL.md) | `/harshit-planner` | Your daily routine in a separate chat. It plans the morning and runs a short shutdown at night. It reads your meeting transcripts for to-dos, decisions, expectations and lessons, and confirms each one with you before saving it. It drafts your standup, manager update and weekly goals, and runs twice-weekly check-ins that score your progress and improve these skills. |
+| [`harshit-learn`](skills/harshit-learn/SKILL.md) | `/harshit-learn <system or ticket>` | Teaches a system as one map that never moves. A frame zooms from the whole system to each sub-system to each node, and you explain each step back before it goes deeper. It saves the map as a page you can step through, and ends with you drawing the map from memory. |
 
-All three run only when you type them. They never start on their own, so one
+All four run only when you type them. They never start on their own, so one
 skill's instructions never mix with another's.
 
 ## How they fit together
@@ -51,7 +52,7 @@ flowchart LR
 ## Install
 
 ```bash
-# all three skills
+# all four skills
 npx skills add hrshtdotme/skills
 
 # just one
@@ -103,6 +104,8 @@ pick up where the last one stopped:
   team.md               expectations, who owns what, shipping and risks
   meetings.md           meetings already processed
   tickets/<id>/         decisions.md for each ticket
+  systems/<slug>.md     what you've learned of each system, step by step
+  systems/<slug>/       its map: map.json, map.html, map.svg
 ```
 
 ## The ideas behind them
@@ -113,7 +116,9 @@ pick up where the last one stopped:
   and a fix test: does fixing it make the failure impossible, or only rarer?
 - **Evidence is marked proven or guessed**, with its source.
 - **Diagrams at a labelled zoom level**: system, containers, components, or
-  code and sequence (from the [C4 model](https://c4model.com/)).
+  code and sequence (from the [C4 model](https://c4model.com/)). To learn a
+  system, keep one map and move the focus, so every detail lands on a
+  picture you already hold.
 - **Words matter.** Each new term gets a one-line definition and a place in
   your glossary, until you use it on your own.
 - **The work isn't done at merge.** Features ship with a usage signal and a

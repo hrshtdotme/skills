@@ -1,0 +1,26 @@
+{
+  "title": "Link shortener",
+  "nodes": [
+    { "id": "browser", "label": "Browser", "note": "Person or bot", "col": 0, "row": 0, "kind": "external" },
+    { "id": "api", "label": "Links API", "note": "Creates short links", "col": 1, "row": 0 },
+    { "id": "ids", "label": "ID generator", "note": "Makes short codes", "col": 2, "row": 0 },
+    { "id": "redirect", "label": "Redirector", "note": "Code to long URL", "col": 1, "row": 1 },
+    { "id": "cache", "label": "Cache", "note": "Hot codes in memory", "col": 2, "row": 1, "kind": "store" },
+    { "id": "db", "label": "Links table", "note": "Source of truth", "col": 1, "row": 2, "kind": "store" },
+    { "id": "clicks", "label": "Click log", "note": "One row per visit", "col": 2, "row": 2, "kind": "store" }
+  ],
+  "edges": [
+    { "from": "browser", "to": "api", "label": "create" },
+    { "from": "browser", "to": "redirect", "label": "visit" },
+    { "from": "api", "to": "ids" },
+    { "from": "api", "to": "db" },
+    { "from": "redirect", "to": "cache" },
+    { "from": "redirect", "to": "db", "label": "on miss" },
+    { "from": "redirect", "to": "clicks", "dashed": true }
+  ],
+  "groups": [
+    { "id": "write", "label": "Write path", "nodes": ["api", "ids"] },
+    { "id": "read", "label": "Read path", "nodes": ["redirect", "cache"] },
+    { "id": "storage", "label": "Storage", "nodes": ["db", "clicks"] }
+  ]
+}

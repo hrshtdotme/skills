@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-27
+
+- New `harshit-learn`: teaches a system as one fixed map with progressive
+  zoom (whole system, each sub-system, each node). A frame shows the focus,
+  each step ends with check questions, and the walkthrough ends with a
+  draw-back from memory. `scripts/zoom-map.mjs` renders every step from one
+  `map.json`, so the layout never moves, and saves a page that steps through
+  the frames.
+
 ## 2026-10-26 (later)
 
 - `harshit-planner` has a `meetings` mode, which `shutdown` runs first. It
