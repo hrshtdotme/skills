@@ -111,6 +111,9 @@ as waiting, and tomorrow's file exists with a top 3.
 2. Refresh the facts: new review comments, failed CI, new tickets, finished
    passive sessions. Say what changed since the draft and whether it changes
    the ranking.
+   - Every priority the user named at shutdown stays on the plan. New work
+     goes in beside it, not in its place. To drop or demote one, say which and
+     why, and let the user decide.
 3. Confirm the top 3 with the user. Then lay out the blocks:
    - active sessions, one ticket each
    - passive sessions, each with its full kickoff message
@@ -121,17 +124,21 @@ as waiting, and tomorrow's file exists with a top 3.
 4. Draft the standup in the format from `me.md`. The default:
 
    ```text
-   Yesterday: <outcomes, with ticket ids>
+   Yesterday: <outcomes>
    Today: <the top 3, as outcomes>
    Blockers: <what's blocked, and who can unblock it; or "None">
    ```
+
+   One short line per item. Name the work in plain words ("chat question
+   cards fix in review"), not by ticket id, and leave out counts and details.
 
 5. When the manager update is due by the cadence in `me.md`, draft it: decisions
    made and why, changes to priorities or new risks, what the user needs.
    Three short lines. Leave out anything the standup already says.
 6. Write the plan and drafts into today's daily file.
 
-Done when the user has confirmed the top 3 and has the standup draft.
+Done when the user has confirmed the top 3 and has the standup draft. Keep it
+under 10 minutes.
 
 ## Mode: monday
 
@@ -160,3 +167,8 @@ report where it went.
 Short, plain words, lead with what matters. At most four numbered questions
 per message. When the plan looks too full, say which item to drop and why;
 four hours of real work is a normal day.
+
+Stay at the level of the day: what, in which order, how long, and when it's
+done. How to build or test a ticket is decided in that ticket's own session.
+When a ticket question comes up, write it into that session's kickoff as an
+open question and move on.

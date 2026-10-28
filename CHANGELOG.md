@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-28
+
+- `harshit-planner` morning keeps every priority named at shutdown. New work
+  goes in beside it, and dropping one is the user's call. Morning takes under
+  10 minutes.
+- The planner stays at the day level. Ticket questions are written into that
+  ticket's kickoff instead of being worked out in the planner.
+- Standups use one short line per item and name the work in plain words, not
+  ticket ids.
+
 ## 2026-10-27
 
 - New `harshit-learn`: teaches a system as one fixed map with progressive
