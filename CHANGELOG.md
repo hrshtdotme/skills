@@ -9,6 +9,9 @@
   ticket's kickoff instead of being worked out in the planner.
 - Standups use one short line per item and name the work in plain words, not
   ticket ids.
+- Morning marks each item by the attention it needs: active, review or
+  background. Every active item needs its own block in the day; one without a
+  block moves to a later day and stays out of the standup.
 
 ## 2026-10-27
 

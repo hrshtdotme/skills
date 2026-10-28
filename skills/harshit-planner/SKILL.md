@@ -114,14 +114,21 @@ as waiting, and tomorrow's file exists with a top 3.
    - Every priority the user named at shutdown stays on the plan. New work
      goes in beside it, not in its place. To drop or demote one, say which and
      why, and let the user decide.
-3. Confirm the top 3 with the user. Then lay out the blocks:
+3. Before proposing the top 3, mark each item by the attention it needs from
+   the user: active (deep focus, such as an investigation or learning a
+   system), review (a short check of an agent's work), or background (an
+   agent runs it). Each active item needs its own block inside the day's
+   active hours. An item with no block moves to a later day and stays out of
+   the standup. When the user says an item needs their own deep attention,
+   it's active.
+4. Confirm the top 3 with the user. Then lay out the blocks:
    - active sessions, one ticket each
    - passive sessions, each with its full kickoff message
      (`/harshit-works passive <ticket-id> ...` with the plan file, what to do,
      and where to stop)
    - ship checks due today
    - the learning block from `me.md` (which system, which question)
-4. Draft the standup in the format from `me.md`. The default:
+5. Draft the standup in the format from `me.md`. The default:
 
    ```text
    Yesterday: <outcomes>
@@ -132,10 +139,10 @@ as waiting, and tomorrow's file exists with a top 3.
    One short line per item. Name the work in plain words ("chat question
    cards fix in review"), not by ticket id, and leave out counts and details.
 
-5. When the manager update is due by the cadence in `me.md`, draft it: decisions
+6. When the manager update is due by the cadence in `me.md`, draft it: decisions
    made and why, changes to priorities or new risks, what the user needs.
    Three short lines. Leave out anything the standup already says.
-6. Write the plan and drafts into today's daily file.
+7. Write the plan and drafts into today's daily file.
 
 Done when the user has confirmed the top 3 and has the standup draft. Keep it
 under 10 minutes.
